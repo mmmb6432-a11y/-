@@ -1,0 +1,574 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0f766e">
+<title>بازارچه | خرید و فروش افغانستان</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="topbar">
+  <button class="menu-btn" id="menuBtn">☰</button>
+
+  <div class="brand">
+    <span class="brand-mark">ب</span>
+    <div>
+      <strong>بازارچه</strong>
+      <small>خرید و فروش افغانستان</small>
+    </div>
+  </div>
+
+  <button class="location-chip" id="locationBtn">
+    📍 <span id="selectedLocation">همه افغانستان</span>
+  </button>
+</header>
+
+<aside class="side-menu" id="sideMenu">
+  <div class="side-head">
+    <strong>بازارچه</strong>
+    <button id="closeMenuBtn">✕</button>
+  </div>
+
+  <button data-nav="home">🏠 خانه</button>
+  <button data-nav="search">🔎 جستجو</button>
+  <button data-nav="favorites">♡ علاقه‌مندی‌ها</button>
+  <button data-nav="add">＋ ثبت آگهی</button>
+  <button data-nav="chat">💬 پیام‌ها</button>
+  <button data-nav="account">👤 حساب من</button>
+  <button data-nav="settings">⚙️ تنظیمات</button>
+</aside>
+
+<div class="menu-overlay" id="menuOverlay"></div>
+
+<main>
+
+<section class="page active" data-page="home">
+
+  <div class="hero">
+
+    <div class="hero-copy">
+      <span class="eyebrow">بازار آنلاین افغانستان</span>
+
+      <h1>
+        هر چیزی را<br>
+        <b>ساده پیدا کن.</b>
+      </h1>
+
+      <p>
+        آگهی‌ها را جستجو کن یا وسایل خودت را برای فروش ثبت کن.
+      </p>
+    </div>
+
+    <div class="search-hero">
+      <span>⌕</span>
+
+      <input
+        id="homeSearchInput"
+        placeholder="مثلاً آیفون، لپ‌تاپ، موتر..."
+      >
+
+      <button id="homeSearchBtn">
+        جستجو
+      </button>
+    </div>
+
+    <button class="hero-location" id="heroLocationBtn">
+      📍 <span id="heroLocation">همه افغانستان</span>
+    </button>
+
+  </div>
+
+
+  <div class="section-head">
+    <h2>دسته‌بندی‌ها</h2>
+    <button data-nav="search">همه</button>
+  </div>
+
+
+  <div class="categories">
+
+    <button data-category="موبایل">
+      📱
+      <span>موبایل</span>
+    </button>
+
+    <button data-category="لپ‌تاپ">
+      💻
+      <span>لپ‌تاپ</span>
+    </button>
+
+    <button data-category="وسایل خانه">
+      🛋️
+      <span>خانه</span>
+    </button>
+
+    <button data-category="موتر">
+      🚗
+      <span>موتر</span>
+    </button>
+
+    <button data-category="موتورسایکل">
+      🏍️
+      <span>موتورسایکل</span>
+    </button>
+
+    <button data-category="پوشاک">
+      👕
+      <span>پوشاک</span>
+    </button>
+
+    <button data-category="کتاب">
+      📚
+      <span>کتاب</span>
+    </button>
+
+    <button data-category="سایر">
+      •••
+      <span>سایر</span>
+    </button>
+
+  </div>
+
+
+  <div class="section-head">
+    <h2>جدیدترین آگهی‌ها</h2>
+    <button data-nav="search">مشاهده همه</button>
+  </div>
+
+  <div class="product-grid" id="homeProducts"></div>
+
+</section>
+
+
+<section class="page" data-page="search">
+
+  <div class="page-title">
+    <span>جستجو</span>
+    <h1>آگهی مورد نظرت را پیدا کن</h1>
+  </div>
+
+  <div class="search-panel">
+
+    <div class="field search-field">
+      <span>⌕</span>
+      <input
+        id="searchInput"
+        placeholder="جستجوی آگهی..."
+      >
+    </div>
+
+    <div class="filter-row">
+
+      <select id="categoryFilter">
+        <option value="">همه دسته‌ها</option>
+        <option>موبایل</option>
+        <option>لپ‌تاپ</option>
+        <option>وسایل خانه</option>
+        <option>موتر</option>
+        <option>موتورسایکل</option>
+        <option>پوشاک</option>
+        <option>کتاب</option>
+        <option>سایر</option>
+      </select>
+
+      <select id="cityFilter">
+        <option value="">همه افغانستان</option>
+      </select>
+
+      <input
+        id="minPrice"
+        type="number"
+        placeholder="حداقل قیمت"
+      >
+
+      <input
+        id="maxPrice"
+        type="number"
+        placeholder="حداکثر قیمت"
+      >
+
+      <select id="sortFilter">
+        <option value="">مرتب‌سازی</option>
+        <option value="new">جدیدترین</option>
+        <option value="cheap">ارزان‌ترین</option>
+        <option value="expensive">گران‌ترین</option>
+      </select>
+
+      <button id="resetFiltersBtn" class="outline">
+        پاک کردن
+      </button>
+
+    </div>
+
+  </div>
+
+  <div class="results-bar">
+    <span id="resultsCount">نتایج</span>
+  </div>
+
+  <div class="product-grid" id="searchProducts"></div>
+
+</section>
+
+
+<section class="page" data-page="favorites">
+
+  <div class="page-title">
+    <span>ذخیره‌شده‌ها</span>
+    <h1>آگهی‌های مورد علاقه</h1>
+  </div>
+
+  <div class="product-grid" id="favoriteProducts"></div>
+
+</section>
+
+
+<section class="page" data-page="add">
+
+  <div class="page-title">
+    <span>فروش سریع</span>
+    <h1>آگهی جدید ثبت کن</h1>
+  </div>
+
+  <form class="form-card" id="productForm">
+
+    <label>
+      عنوان آگهی
+
+      <input
+        id="productTitle"
+        required
+        placeholder="مثلاً آیفون 13 سالم"
+      >
+    </label>
+
+
+    <div class="two">
+
+      <label>
+        قیمت به افغانی
+
+        <input
+          id="productPrice"
+          type="number"
+          min="0"
+          required
+        >
+      </label>
+
+
+      <label>
+        دسته‌بندی
+
+        <select id="productCategory">
+          <option>موبایل</option>
+          <option>لپ‌تاپ</option>
+          <option>وسایل خانه</option>
+          <option>موتر</option>
+          <option>موتورسایکل</option>
+          <option>پوشاک</option>
+          <option>کتاب</option>
+          <option>سایر</option>
+        </select>
+
+      </label>
+
+    </div>
+
+
+    <label>
+      ولایت
+
+      <select id="productCity"></select>
+    </label>
+
+
+    <label>
+      لینک عکس
+
+      <input
+        id="productImage"
+        type="url"
+        placeholder="https://..."
+      >
+    </label>
+
+
+    <label>
+      توضیحات
+
+      <textarea
+        id="productDescription"
+        rows="5"
+        placeholder="جزئیات آگهی را بنویس..."
+      ></textarea>
+    </label>
+
+
+    <button class="primary full" type="submit">
+      ＋ ثبت آگهی
+    </button>
+
+  </form>
+
+</section>
+
+
+<section class="page" data-page="chat">
+
+  <div class="page-title">
+    <span>گفتگو</span>
+    <h1>پیام‌های من</h1>
+  </div>
+
+  <div class="chat-layout">
+
+    <div
+      class="conversation-list"
+      id="conversationList"
+    ></div>
+
+    <div class="chat-box">
+
+      <div
+        id="messages"
+        class="messages"
+      >
+        <div class="empty-state">
+          یک گفتگو را انتخاب کن.
+        </div>
+      </div>
+
+      <form
+        id="messageForm"
+        class="message-form"
+      >
+
+        <input
+          id="messageInput"
+          placeholder="پیامت را بنویس..."
+        >
+
+        <button>➤</button>
+
+      </form>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<section class="page" data-page="account">
+
+  <div class="page-title">
+    <span>حساب</span>
+    <h1>حساب بازارچه</h1>
+  </div>
+
+
+  <div class="account-card">
+
+    <div class="account-icon">
+      👤
+    </div>
+
+    <h2 id="accountStatus">
+      وارد نشده‌ای
+    </h2>
+
+
+    <form id="authForm" class="auth-form">
+
+      <input
+        id="email"
+        type="email"
+        placeholder="ایمیل"
+        required
+      >
+
+      <input
+        id="password"
+        type="password"
+        placeholder="رمز عبور"
+        required
+      >
+
+      <button class="primary full" type="submit">
+        ورود
+      </button>
+
+      <div class="auth-actions">
+
+        <button
+          type="button"
+          id="signupBtn"
+        >
+          ساخت حساب
+        </button>
+
+        <button
+          type="button"
+          id="resetBtn"
+        >
+          فراموشی رمز
+        </button>
+
+      </div>
+
+    </form>
+
+
+    <form
+      id="profileForm"
+      class="auth-form"
+      style="display:none"
+    >
+
+      <input
+        id="displayName"
+        placeholder="نام نمایشی"
+      >
+
+      <select id="profileCity"></select>
+
+      <button
+        class="primary full"
+        type="submit"
+      >
+        ذخیره پروفایل
+      </button>
+
+      <button
+        type="button"
+        id="logoutBtn"
+        class="danger full"
+      >
+        خروج از حساب
+      </button>
+
+    </form>
+
+  </div>
+
+</section>
+
+
+<section class="page" data-page="settings">
+
+  <div class="page-title">
+    <span>تنظیمات</span>
+    <h1>تنظیمات سایت</h1>
+  </div>
+
+
+  <div class="settings-card">
+
+    <button id="settingsLocationBtn">
+
+      <span>📍 موقعیت</span>
+
+      <b id="settingsLocation">
+        همه افغانستان
+      </b>
+
+    </button>
+
+
+    <label class="switch-row">
+
+      <span>🌙 حالت تاریک</span>
+
+      <input
+        id="darkToggle"
+        type="checkbox"
+      >
+
+      <i></i>
+
+    </label>
+
+  </div>
+
+</section>
+
+</main>
+
+
+<nav class="bottom-nav">
+
+  <button
+    data-nav="home"
+    class="active"
+  >
+    ⌂
+    <span>خانه</span>
+  </button>
+
+  <button data-nav="search">
+    ⌕
+    <span>جستجو</span>
+  </button>
+
+  <button
+    data-nav="add"
+    class="add-main"
+  >
+    ＋
+    <span>آگهی</span>
+  </button>
+
+  <button data-nav="chat">
+    ♡
+    <span>پیام</span>
+  </button>
+
+  <button data-nav="account">
+    ◉
+    <span>حساب</span>
+  </button>
+
+</nav>
+
+
+<div class="modal" id="locationModal">
+
+  <div class="modal-card">
+
+    <div class="modal-head">
+
+      <h2>انتخاب ولایت</h2>
+
+      <button id="closeLocationModal">
+        ✕
+      </button>
+
+    </div>
+
+    <input
+      id="locationSearch"
+      placeholder="جستجوی ولایت..."
+    >
+
+    <div
+      id="locationList"
+      class="location-list"
+    ></div>
+
+  </div>
+
+</div>
+
+
+<div id="toast" class="toast"></div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="script.js"></script>
+
+</body>
+</html>
